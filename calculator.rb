@@ -1,6 +1,6 @@
-operators = ["+", "-", "*", "/"]
+OPERATORS = ["+", "-", "*", "/"]
 
-def operator_instructions
+def print_operator_instructions
   puts "Type '+' to add."
   puts "Type '-' to subtract."
   puts "Type '*' to multiply."
@@ -28,12 +28,12 @@ end
 number_1 = input_1.to_i
 number_2 = input_2.to_i
 
-operator_instructions
+print_operator_instructions
 operator = gets.chomp
 
-until operators.include?(operator)
+until OPERATORS.include?(operator)
   puts "That's not an operator. Please enter an operator."
-  operator_instructions
+  print_operator_instructions
   operator = gets.chomp
 end
 
