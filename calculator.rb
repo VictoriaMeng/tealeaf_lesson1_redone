@@ -14,7 +14,7 @@ input_1 = gets.chomp
 
 until input_1 == input_1.to_i.to_s
   puts "That's not a number! Enter a number."
-  input_1 =gets.chomp
+  input_1 = gets.chomp
 end
 
 puts "Enter your second number."
@@ -25,8 +25,8 @@ until input_2 == input_2.to_i.to_s
   input_2 =gets.chomp
 end
 
-number_1 = input_1.to_i
-number_2 = input_2.to_i
+number_1 = input_1.to_f
+number_2 = input_2.to_f
 
 print_operator_instructions
 operator = gets.chomp
