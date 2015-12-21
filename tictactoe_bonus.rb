@@ -108,14 +108,8 @@ def turn(board, players, whose_turn)
   end
 end
 
-def turn_summary(players, whose_turn, square)
-  if players[:human][:order] == whose_turn
-    say "You placed #{players[:human][:symbol]} in Square #{square}." 
-  elsif
-    say "Opponent placed #{players[:computer][:symbol]} in Square #{square}."
-  else 
-    nil
-  end
+def computer_turn_summary(computer, whose_turn, square)
+  say "Opponent placed #{computer[:symbol]} in Square #{square}." if computer[:order] == whose_turn
 end
 
 def winner_check(board, players)
@@ -141,11 +135,11 @@ loop do
   begin
     square = turn(board, players, "player_1")
     draw_board(board)
-    turn_summary(players, "player_1", square)
+    computer_turn_summary(players[:computer], "player_1", square)
     break if winner_check(board, players) || full_board_check(board)
     square = turn(board, players, "player_2")
     draw_board(board)
-    turn_summary(players, "player_2", square)
+    computer_turn_summary(players[:computer], "player_2", square)
   end until winner_check(board, players) || full_board_check(board)
 
   if winner_check(board, players)
