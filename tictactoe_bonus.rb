@@ -53,12 +53,6 @@ def assign_order(players)
   end
 end
 
-def game_start_summary(players)
-  say "You are #{players[:human][:symbol]}. Your opponent is #{players[:computer][:symbol]}."
-  say "This time, you go first." if players[:human][:order] == "player_1"
-  say "This time, Computer goes first." if players[:computer][:order] == "player_1"
-end
-
 def open_squares(board)
   board.keys.select {|square| board[square] == " "}
 end
@@ -128,7 +122,6 @@ loop do
   say "Let's play Tic-Tac-Toe."
   players = assign_symbols
   assign_order(players)
-  game_start_summary(players)
   board = initialize_board
   draw_board(board)
 
